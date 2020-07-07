@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
+from .views import item_list
 
 urlpatterns = [
     path('',views.index, name='index'),
-    path('items/?$',views.item.ItemList.as_viwe(), name='item-list'),
-    path('items/(?P<pk>[0-9]+)/?$', views.item.ItemList.as_viwe())    
+    path('items/?$',item_list, name='item-list'),
+    path('items/(?P<pk>[0-9]+)/?$', item_list, name='item-detail')    
 ]
