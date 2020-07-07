@@ -16,7 +16,13 @@ class Item(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
+    @property
     def full_title(self):
-        return "%s :  %s" %(self.title, self.subtitle)
-        
+        if self.subtitle:
+            return "%s :  %s" %(self.title, self.subtitle)
+        else:
+            return self.title
+
+
+
+            
